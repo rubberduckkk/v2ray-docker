@@ -1,8 +1,9 @@
 #!/bin/sh
 
 # Set ARG
-PLATFORM=$1
-TAG=$2
+ARG PLATFORM
+ARG TAG
+
 if [ -z "$PLATFORM" ]; then
     ARCH="64"
 else
@@ -34,6 +35,7 @@ V2RAY_FILE="v2ray-linux-${ARCH}.zip"
 DGST_FILE="v2ray-linux-${ARCH}.zip.dgst"
 echo "Downloading binary file: ${V2RAY_FILE}"
 echo "Downloading binary file: ${DGST_FILE}"
+echo "Tag: ${TAG}"
 
 wget -O ${PWD}/v2ray.zip https://github.com/v2fly/v2ray-core/releases/download/${TAG}/${V2RAY_FILE} > /dev/null 2>&1
 wget -O ${PWD}/v2ray.zip.dgst https://github.com/v2fly/v2ray-core/releases/download/${TAG}/${DGST_FILE} > /dev/null 2>&1
